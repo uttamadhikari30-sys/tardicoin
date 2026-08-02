@@ -247,6 +247,7 @@
   if(location.search.indexOf('sent=1')>-1){var n=document.getElementById('note');if(n)n.innerHTML='✅ Thanks! Your message reached the Legion — we\'ll reply soon. 🐾';}
   var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('[data-tg]').forEach(function(a){a.href='https://t.me/TardiLegion';a.target='_blank';a.rel='noopener'});
 </script>
 </body>
 </html>
