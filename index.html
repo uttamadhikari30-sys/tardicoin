@@ -601,15 +601,90 @@
 
 <!-- TOKENOMICS -->
 <section id="token" class="reveal" style="background:var(--bg2);border-block:1px solid var(--line2)">
+  <style>
+    .alloc{margin-top:34px}
+    .donut-wrap{display:grid;grid-template-columns:auto 1fr;gap:38px;align-items:center;background:var(--panel);border:1px solid var(--line2);border-radius:22px;padding:32px 34px;backdrop-filter:blur(10px)}
+    @media(max-width:640px){.donut-wrap{grid-template-columns:1fr;justify-items:center}}
+    .donut{width:212px;height:212px;flex:none;filter:drop-shadow(0 0 20px rgba(124,255,63,.14))}
+    .donut .ctr-n{font-family:var(--disp);font-weight:800;font-size:34px;fill:#fff}
+    .donut .ctr-s{font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:3px;fill:var(--green)}
+    .legend{list-style:none;display:flex;flex-direction:column;gap:15px;width:100%}
+    .legend li{display:flex;align-items:center;gap:13px;font-weight:700;font-size:15.5px;border-bottom:1px dashed var(--line2);padding-bottom:15px}
+    .legend li:last-child{border-bottom:none;padding-bottom:0}
+    .legend .lg{width:15px;height:15px;border-radius:5px;flex:none;box-shadow:0 0 10px currentColor}
+    .legend .lb{flex:1}
+    .legend i{font-style:normal;color:var(--muted);font-size:12.5px;font-weight:600;min-width:104px;text-align:right;letter-spacing:.3px}
+    .legend b{font-family:var(--disp);font-size:20px;width:58px;text-align:right}
+    .lg.d80{background:var(--green);color:var(--green)}.lg.d15{background:var(--gold);color:var(--gold)}.lg.d5{background:var(--cyan);color:var(--cyan)}
+    .alloc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    @media(max-width:760px){.alloc-cards{grid-template-columns:1fr}}
+    .acard{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--line2);border-radius:18px;padding:24px;position:relative;transition:transform .25s,border-color .25s}
+    .acard:hover{transform:translateY(-4px);border-color:var(--line)}
+    .acard .dot{width:14px;height:14px;border-radius:50%;position:absolute;top:26px;right:24px;box-shadow:0 0 12px currentColor}
+    .d80{background:var(--green);color:var(--green)}.d15{background:var(--gold);color:var(--gold)}.d5{background:var(--cyan);color:var(--cyan)}
+    .acard .pct{font-family:var(--disp);font-weight:800;font-size:36px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .acard .amt{color:var(--muted);font-size:13px;font-weight:600;margin:6px 0 12px;letter-spacing:.4px}
+    .acard h3{font-size:18px;margin-bottom:6px}
+    .acard p{color:var(--muted);font-size:14px;line-height:1.6}
+    .badge{display:inline-flex;align-items:center;gap:6px;margin-top:15px;font-size:12px;font-weight:800;padding:7px 13px;border-radius:30px;border:1px solid var(--line)}
+    .bfire{color:#ffbf9a;background:rgba(255,120,60,.09);border-color:rgba(255,120,60,.28)}
+    .block{color:var(--gold2);background:rgba(245,197,66,.09);border-color:rgba(245,197,66,.3)}
+    .bzap{color:#a9fff0;background:rgba(37,240,220,.09);border-color:rgba(37,240,220,.3)}
+  </style>
   <div class="wrap">
     <div class="eyebrow">Tokenomics</div>
-    <h2 class="sec-h">Clean, fixed, and un-ruggable.</h2>
-    <div class="grid g3">
+    <h2 class="sec-h">Clean, fixed, and locked.</h2>
+    <p class="lead">1,000,000,000 $TARDI · 0% tax · mint &amp; freeze revoked. Every slice is on-chain and checkable.</p>
+
+    <div class="alloc">
+      <div class="donut-wrap">
+        <svg class="donut" viewBox="0 0 200 200" role="img" aria-label="Allocation: 80% liquidity, 15% team, 5% rewards">
+          <g transform="rotate(-90 100 100)">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="26"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--green)" stroke-width="26" stroke-dasharray="402.1 100.55" stroke-dashoffset="0"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--gold)" stroke-width="26" stroke-dasharray="75.4 427.25" stroke-dashoffset="-402.1"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--cyan)" stroke-width="26" stroke-dasharray="25.13 477.52" stroke-dashoffset="-477.52"/>
+          </g>
+          <text class="ctr-n" x="100" y="98" text-anchor="middle">1B</text>
+          <text class="ctr-s" x="100" y="119" text-anchor="middle">$TARDI</text>
+        </svg>
+        <ul class="legend">
+          <li><span class="lg d80"></span><span class="lb">Liquidity</span><i>800,000,000</i><b>80%</b></li>
+          <li><span class="lg d15"></span><span class="lb">Team</span><i>150,000,000</i><b>15%</b></li>
+          <li><span class="lg d5"></span><span class="lb">Rewards &amp; Marketing</span><i>50,000,000</i><b>5%</b></li>
+        </ul>
+      </div>
+      <div class="alloc-cards">
+        <div class="acard">
+          <span class="dot d80"></span>
+          <div class="pct">80%</div><div class="amt">800,000,000 $TARDI</div>
+          <h3>Liquidity</h3>
+          <p>Paired on Raydium at launch — then the LP tokens are burned. Liquidity can never be pulled.</p>
+          <span class="badge bfire">🔥 LP Burned</span>
+        </div>
+        <div class="acard">
+          <span class="dot d15"></span>
+          <div class="pct">15%</div><div class="amt">150,000,000 $TARDI</div>
+          <h3>Team</h3>
+          <p>Locked on Streamflow: 6-month cliff, then vested linearly over 18 months. Publicly verifiable — the team can't dump.</p>
+          <span class="badge block">🔒 Vested &amp; Locked</span>
+        </div>
+        <div class="acard">
+          <span class="dot d5"></span>
+          <div class="pct">5%</div><div class="amt">50,000,000 $TARDI</div>
+          <h3>Rewards &amp; Marketing</h3>
+          <p>Feeds the on-chain staking pool and growth. Emitted gradually to holders who stake $TARDI.</p>
+          <span class="badge bzap">⚡ Staking Rewards</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:40px">
       <div class="card"><span class="ic">🔒</span><h3>Mint Authority Revoked</h3><p>Supply is fixed at 1B forever — no one can ever print more $TARDI.</p></div>
       <div class="card"><span class="ic">❄️</span><h3>Freeze Authority Revoked</h3><p>No wallet can ever be frozen. Your tokens are yours, always.</p></div>
-      <div class="card"><span class="ic">🔥</span><h3>Liquidity Burned</h3><p>LP burned on graduation — liquidity can never be pulled. Un-ruggable by design.</p></div>
+      <div class="card"><span class="ic">🔥</span><h3>Liquidity Burned</h3><p>LP tokens burned after the Raydium pool is seeded — liquidity can never be pulled.</p></div>
       <div class="card"><span class="ic">🚫</span><h3>Zero Tax</h3><p>0% buy, 0% sell. No hidden fees skimming your bag on every trade.</p></div>
-      <div class="card"><span class="ic">🤝</span><h3>No Insider Pre-Mine</h3><p>Fair launch on pump.fun — everyone buys the same curve, transparently.</p></div>
+      <div class="card"><span class="ic">⏳</span><h3>Team Tokens Locked</h3><p>The 15% team allocation vests on Streamflow with a 6-month cliff — no early dumps, provable on-chain.</p></div>
       <div class="card"><span class="ic">🏛️</span><h3>Multisig Treasury</h3><p>Project funds on a Squads multisig with public signers — no solo control.</p></div>
     </div>
   </div>
@@ -639,8 +714,9 @@
     <div class="verify" style="margin-top:30px">
       <div class="vrow"><span class="ck">✔</span><span class="k">Mint Authority Revoked</span><span class="v">verify on RugCheck</span></div>
       <div class="vrow"><span class="ck">✔</span><span class="k">Freeze Authority Revoked</span><span class="v">verify on RugCheck</span></div>
-      <div class="vrow"><span class="ck">✔</span><span class="k">Liquidity Burned on Graduation</span><span class="v">on-chain tx</span></div>
+      <div class="vrow"><span class="ck">✔</span><span class="k">Liquidity Burned (LP tokens)</span><span class="v">on-chain tx</span></div>
       <div class="vrow"><span class="ck">✔</span><span class="k">Fixed 1B Supply, No Hidden Mint</span><span class="v">verify on Birdeye</span></div>
+      <div class="vrow"><span class="ck">✔</span><span class="k">Team 15% Vested &amp; Locked</span><span class="v">Streamflow contract</span></div>
       <div class="vrow"><span class="ck">✔</span><span class="k">Treasury on Squads Multisig</span><span class="v">public signers</span></div>
       <div class="vrow"><span class="ck">✔</span><span class="k">Node Agent Open Source</span><span class="v">audit the code</span></div>
     </div>
